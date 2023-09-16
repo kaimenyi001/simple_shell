@@ -34,10 +34,8 @@ char *search_exec(char *cmd, char *path)
 		{
 			return (_strdup(execPath));
 		}
-		else
-		{
-			perror("./shell");
-		}
 	}
+	perror("./shell");
+
 	return (NULL);
 }
