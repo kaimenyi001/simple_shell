@@ -19,8 +19,14 @@ char *_input(size_t *buff_size)
 		exit(EXIT_FAILURE);
 	}
 
-	while (*buff == ' ')
+	while (*buff == ' ' || *buff == '\t' || *buff == '\n')
 		buff++;
+
+	if (_strcmp(buff, "exit\n") == 0)
+	{
+		free(buff);
+		exit(EXIT_SUCCESS);
+	}
 
 
 	return (buff);

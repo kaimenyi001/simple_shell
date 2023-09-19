@@ -24,5 +24,6 @@ char *_input(size_t *buff_size);
 void free_tokens(char *tokens[], int tkncnt);
 char *_getenv(char *name, char **env);
 int _strncmp(char *s1, char *s2, size_t n);
+int _strcmp(char *s1, char *s2);
 
 #endif
