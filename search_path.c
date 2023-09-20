@@ -22,7 +22,6 @@ char *search_exec(char *cmd, char *path)
 		drcs[dirCnt++] = token;
 		token = strtok(NULL, ":");
 	}
-	free(path_cpy);
 
 	for (i = 0; i < dirCnt; i++)
 	{
