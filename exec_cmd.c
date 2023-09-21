@@ -10,12 +10,7 @@ void exec_cmd(char *tokens[])
 {
 	pid_t child;
 	int stats;
-	char *execPath;
 
-	execPath = search_exec(tokens[0], _getenv("PATH", environ));
-
-	if (execPath)
-	{
 	child = fork();
 	if (child == -1)
 	{
@@ -24,7 +19,7 @@ void exec_cmd(char *tokens[])
 	}
 	if (child == 0)
 	{
-		if (execve(execPath, tokens, NULL) == -1)
+		if (execve(tokens[0], tokens, NULL) == -1)
 		{
 			perror("./shell");
 			exit(EXIT_FAILURE);
@@ -34,6 +29,5 @@ void exec_cmd(char *tokens[])
 	{
 		perror("Error(wait error)");
 		exit(EXIT_FAILURE);
-	}
 	}
 }
